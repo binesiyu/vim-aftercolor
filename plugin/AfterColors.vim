@@ -55,13 +55,31 @@ augroup ex_aftercolors
 
 augroup end
 
+" " Relative path of script file:
+" let s:path = expand('<sfile>')
+"
+" " Absolute path of script file:
+" let s:path = expand('<sfile>:p')
+"
+" " Absolute path of script file with symbolic links resolved:
+" let s:path = resolve(expand('<sfile>:p'))
+"
+" " Folder in which script resides: (not safe for symlinks)
+" let s:path = expand('<sfile>:p:h')
+"
+" " If you're using a symlink to your script, but your resources are in
+" " the same directory as the actual script, you'll need to do this:
+" "   1: Get the absolute path of the script
+" "   2: Resolve all symbolic links
+" "   3: Get the folder of the resolved absolute file
+" let s:path = fnamemodify(resolve(expand('<sfile>:p')), ':h')
 function! s:after_colors_script()
 	if exists('g:colors_name') && strlen(g:colors_name)
 		" allow global colors in 'common.vim'
-		execute 'runtime! after/colors/common.vim'
+		execute "runtime! START after/colors/common.vim"
 
 		" allow two places to store after/colors scripts
-		execute 'runtime! after/colors/' . g:colors_name . '.vim'
+		execute "runtime! START after/colors/" . g:colors_name . '.vim'
 	endif
 endfunction
 
