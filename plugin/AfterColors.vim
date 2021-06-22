@@ -72,14 +72,16 @@ augroup end
 " "   1: Get the absolute path of the script
 " "   2: Resolve all symbolic links
 " "   3: Get the folder of the resolved absolute file
-" let s:path = fnamemodify(resolve(expand('<sfile>:p')), ':h')
+let s:path = fnamemodify(resolve(expand('<sfile>:p')), ':h')
+echomsg s:path
 function! s:after_colors_script()
 	if exists('g:colors_name') && strlen(g:colors_name)
 		" allow global colors in 'common.vim'
-		execute "runtime! START after/colors/common.vim"
+		execute "source " . s:path . "/../after/colors/common.vim"
 
 		" allow two places to store after/colors scripts
-		execute "runtime! START after/colors/" . g:colors_name . '.vim'
+		execute "source " . s:path . "/../after/colors/common.vim"
+		execute "source " . s:path . "/../after/colors/" . g:colors_name . '.vim'
 	endif
 endfunction
 

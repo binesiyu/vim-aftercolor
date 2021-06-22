@@ -3,6 +3,7 @@ if &background == "dark"
     hi VertSplit guibg=#282828 guifg=#181A1F
     hi Cursor gui=none guifg=#002b36 guibg=#829496
     hi SignColumn NONE
+    hi QuickFixLine cterm=bold ctermfg=none ctermbg=none
 
     " ex
     " =============================
@@ -76,6 +77,7 @@ else
     hi VertSplit guibg=#fbf1c7 guifg=#e7e9e1
     hi Cursor gui=none guifg=#002b36 guibg=#829496
     hi clear SignColumn
+    hi QuickFixLine cterm=bold ctermfg=none ctermbg=none
     " ex
     " =============================
 
