@@ -73,7 +73,7 @@ augroup end
 " "   2: Resolve all symbolic links
 " "   3: Get the folder of the resolved absolute file
 let s:path = fnamemodify(resolve(expand('<sfile>:p')), ':h')
-echomsg s:path
+" echomsg s:path
 function! s:after_colors_script()
 	if exists('g:colors_name') && strlen(g:colors_name)
 		" allow global colors in 'common.vim'
